@@ -1,6 +1,10 @@
 public class Data
 {
 public static final int MAX = (int) (Math.random() * Integer.MAX_VALUE);
+public Data(int rows, int cols)
+{
+    grid = new int[rows][cols];
+}
 private int[][] grid;
 /** Fills all elements of grid with randomly generated values, as described in part (a)
 * Precondition: grid is not null.
