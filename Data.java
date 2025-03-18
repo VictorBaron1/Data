@@ -1,10 +1,15 @@
 public class Data
 {
 public static final int MAX = (int) (Math.random() * Integer.MAX_VALUE);
+public Data(int rows, int cols) 
+{
+    grid = new int [rows][cols];   
+}
 public Data(int[][] arr)
 {
     grid = arr;
 }
+
 public String toString()
 {
     String s = "";
@@ -40,7 +45,21 @@ public void repopulate()
 }
 public int countIncreasingCols()
 { 
-    return 0;
+    int count = 0;
+    for(int col = 0; col < grid[0].length; col++)
+    {
+        int increasing = 1;
+        for(int row = 1; row < grid.length; row++)
+        {
+            if (grid[row][col] >= grid[row-1][col])
+            {
+                increasing++;
+                if (increasing == grid.length) count++;
+            }
+        }
+    }
+    return count;
  }
+ 
 // There may be instance variables, constructors, and methods that are not shown.
 }
